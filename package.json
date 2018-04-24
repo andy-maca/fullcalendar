@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/andy-maca/fullcalendar#readme",
   "dependencies": {
-    "bootstrap": "^4.1.0",
     "fullcalendar": "^3.9.0"
   }
 }
