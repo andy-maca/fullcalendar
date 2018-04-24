@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Show google calendar in fullcalendar</title>
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+  <link href="node_modules/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" >
+  <link href="node_modules/fullcalendar/dist/fullcalendar.print.min.css" rel="stylesheet" media="print">
+  <script type='text/javascript' src='node_modules/moment/min/moment.min.js'></script>
+  <script type='text/javascript' src='node_modules/jquery/dist/jquery.js'></script>
+  <script type='text/javascript' src='node_modules/fullcalendar/dist/fullcalendar.js'></script>
+  <script type='text/javascript' src='node_modules/fullcalendar/dist/gcal.js'></script>
+
+  <script type='text/javascript'>
+    var googleId;
+    function showCalendar(googleId) {
+      if(!googleId) {
+        googleId = $("#googleid").val();
+      }
+      
+      $('#calendar').fullCalendar("removeEvents");
+      $('#calendar').fullCalendar("addEventSource",{
+          googleCalendarId: googleId
+      });
+    }
+
+    $(document).ready(function() {
+
+      $('#calendar').fullCalendar({
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,listYear'
+        },
+        googleCalendarApiKey: 'AIzaSyAmhnldAhC3S_rT4HRMtfulCguU5iLjmC0',
+        events: {
+          googleCalendarId: "machangan0514@gmail.com"
+        },
+        eventClick: function(event) {
+          // opens events in a popup window
+          window.open(event.url, '_blank', 'width=700,height=600');
+          return false;
+        }
+      });
+    });
+  </script>
+
+  <style>
+    #calendar {
+      width: 900px;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="user">
+    <div class="text-center">
+      <div class="form-control">
+        <label class="">Google Id <input id="googleid"></label>
+        <button onclick="showCalendar()">Show google calendar</button>
+        <label>Note: the calendar can only be shown if this google account share its calendar to public</label>
+      </div>
+    </form>
+  </div>
+  <div id="calendar"></div>
+</body>
+</html>

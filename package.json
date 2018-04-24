@@ -1,0 +1,26 @@
+{
+  "name": "fullcalendarwithgooglecalendar",
+  "version": "1.0.0",
+  "description": "Show google calendar events in fullcalendar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andy-maca/fullcalendar.git"
+  },
+  "keywords": [
+    "fullcalendar"
+  ],
+  "author": "Andy Ma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andy-maca/fullcalendar/issues"
+  },
+  "homepage": "https://github.com/andy-maca/fullcalendar#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.0",
+    "fullcalendar": "^3.9.0"
+  }
+}
