@@ -1,8 +1,5 @@
 import './style.css';
-import 'fullcalendar/dist/fullcalendar.css';
-
-import 'fullcalendar';
-import $ from 'jquery';
+import showFullcalendar from "./showFullcalender"
 import googleclient from 'google-client-api';
 
 googleclient().then(function (gapi) {
@@ -118,24 +115,7 @@ googleclient().then(function (gapi) {
           });
         }
       }
-      updateFullcalendar(eventsList);
-    });
-  }
-
-  function updateFullcalendar(eventsList) {
-    $('#calendar').fullCalendar("removeEvents");
-    $('#calendar').fullCalendar({
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,listYear'
-      },
-      events: eventsList,
-      eventClick: function (event) {
-        // opens events in a popup window
-        window.open(event.url, '_blank', 'width=700,height=600');
-        return false;
-      }
+      showFullcalendar(eventsList);
     });
   }
 
